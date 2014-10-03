@@ -110,7 +110,7 @@ Steps ??
 
 .. code-block:: console
     
-    >> behave --lang fr
+    $ behave --lang fr
     ..
     ..
     You can implement step definitions for undefined steps with these snippets:
@@ -170,7 +170,10 @@ Et après ?
     - pour la documentation ou manuel utilisateur
     - pour la formation client ou interne (Maintenance)
     - peuvent être utilisé comme sondes
-    
+   
+- alimente une banque de ``steps``
+    - gain 
+
 
 ----
 
