@@ -64,4 +64,116 @@ Gherkin
 
 ----
 
+Behave
+======
+
+- Behave comprend le language gherkins
+- Behave execute le code python corresponsdant
+- Installation 
+
+.. code-block:: shell
+
+        pip install behave
+
+- arborescence de tests
+
+.. code-block:: shell
+
+    features
+      |-- fonctionnalite1.feature
+      |-- fonctionnalite2.feature
+      |-- steps
+      |     |-- backoffice.py
+      |     |-- authentification.py
+
+
+
+----
+
+Steps ??
+========
+
+- Passerelle Gherkin <-> Python
+- Un exemple
+
+.. code-block:: cucumber
+
+    Fonctionnalité: Bonjour le monde
+        Affiche bonjour le monde à l'écran
+
+        Scenario: lancement de l'application
+            Quand je lance l'application
+            Alors je devrais voir "Bonjour le monde"
+
+
+- On lance
+
+.. code-block:: console
+    
+    >> behave --lang fr
+    ..
+    ..
+    You can implement step definitions for undefined steps with these snippets:
+
+    @when(u'je lance l\'application')
+    def step_impl(context):
+        assert False
+
+    @then(u'je devrais voir "Bonjour le monde"')
+    def step_impl(context):
+        assert False
+
+
+----
+
+On code nos steps 
+=================
+
+- dans un fichier de ``features/steps``
+
+.. code-block:: python
+    :emphasize-lines: 5,7,8,9
+
+    from behave import *
+
+    @when(u'je lance l\'application')
+    def step_impl(context):
+        assert True
+
+    @then(u'je devrais voir "{text}"')
+    def step_impl(context, text):
+        assert True
+
+- Et ça donne
+
+.. code-block:: console
+
+    $ behave --lang fr
+    Fonctionnalité: Bonjour le monde # features/BonjourLeMonde.feature:1
+        Affiche bonjour le monde à l'écran
+        Scénario: lancement de l'application       # features/BonjourLeMonde.feature:4
+            Quand je lance l'application             # features/steps/MonApplication.py:5 0.000s
+            Alors je devrais voir "Bonjour le monde" # features/steps/MonApplication.py:9 0.000s
+
+    1 feature passed, 0 failed, 0 skipped
+    1 scenario passed, 0 failed, 0 skipped
+    2 steps passed, 0 failed, 0 skipped, 0 undefined
+    Took 0m0.000s
+
+----
+
+Et après ?
+==========
+
+- les Scénarios sont utilisables
+    - en intégration continue
+    - pour la documentation ou manuel utilisateur
+    - pour la formation client ou interne (Maintenance)
+    - peuvent être utilisé comme sondes
+    
+
+----
+
+Questions ??
+============
 
