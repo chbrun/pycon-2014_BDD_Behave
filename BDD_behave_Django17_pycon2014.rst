@@ -1,5 +1,15 @@
+:css: sixfeetup_hovercraft/css/hovercraft.css
+:title: BDD avec Behave (et Django 1.7)
+:author: Christophe Brun
+:event: PyconFR 2014
+:description: Python, Behave, BDD, Django
+:pygments: monokai
+
 BDD avec Behave (et Django 1.7)
 ===============================
+
+Christophe Brun
+---------------
 
 ----
 
@@ -23,6 +33,8 @@ Sans BDD, cela peut donner
 
 
 ----
+
+:data-rotate: 90
 
 Avec BDD
 ========
@@ -60,9 +72,12 @@ Gherkin
     - un fichier d'extension ``.feature``
 
 .. image:: PickledGherkin.JPG
+    :width: 220px
     :align: center
 
 ----
+
+:data-rotate-x: 180
 
 Behave
 ======
@@ -71,13 +86,13 @@ Behave
 - Behave execute le code python corresponsdant
 - Installation 
 
-.. code-block:: shell
+.. code-block:: bash
 
         pip install behave
 
 - arborescence de tests
 
-.. code-block:: shell
+.. code-block:: bash
 
     features
       |-- fonctionnalite1.feature
@@ -132,7 +147,6 @@ On code nos steps
 - dans un fichier de ``features/steps``
 
 .. code-block:: python
-    :emphasize-lines: 5,7,8,9
 
     from behave import *
 
