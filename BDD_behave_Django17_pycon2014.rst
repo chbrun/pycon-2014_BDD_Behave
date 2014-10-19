@@ -1,9 +1,13 @@
-:css: sixfeetup_hovercraft/css/hovercraft.css
+:css: bdd_behave.css
 :title: BDD avec Behave (et Django 1.7)
 :author: Christophe Brun
 :event: PyconFR 2014
 :description: Python, Behave, BDD, Django
+:data-transition-duration: 1300
 :pygments: monokai
+
+
+:id: homepage
 
 BDD avec Behave (et Django 1.7)
 ===============================
@@ -12,6 +16,8 @@ Christophe Brun
 ---------------
 
 ----
+
+:id: intro
 
 Introduction BDD
 ================
@@ -25,6 +31,8 @@ Introduction BDD
     - Utilisation de "Bouchon" sur les éléments non encore traités
 
 ----
+
+
 
 Sans BDD, cela peut donner
 ==========================
@@ -58,6 +66,8 @@ Avec BDD
 
 ----
 
+:id: gherkin
+
 Gherkin
 =======
 
@@ -73,6 +83,7 @@ Gherkin
 
 .. image:: PickledGherkin.JPG
     :width: 220px
+    :alt: cucumber
     :align: center
 
 ----
