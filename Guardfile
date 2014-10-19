@@ -5,8 +5,8 @@ guard :shell do
             `hovercraft #{m[0]} -s -t ./pycon/ ./output/`
             m[1] + " updated."
     end
-    watch /css\/(.*)\.css/ do |m|
-            `hovercraft #{m[1]}.rst -s  -t ./pycon/ ./output/`
+    watch /pycon\/css\/(.*)\.css/ do |m|
+            `hovercraft BDD_behave_Django17_pycon2014.rst -s  -t ./pycon/ ./output/`
             m[1] + " updated."
     end
 end

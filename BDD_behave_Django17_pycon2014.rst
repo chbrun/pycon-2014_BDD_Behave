@@ -1,4 +1,4 @@
-:css: bdd_behave.css
+:css: pycon/css/pycon.css
 :title: BDD avec Behave (et Django 1.7)
 :author: Christophe Brun
 :event: PyconFR 2014
@@ -37,7 +37,7 @@ Introduction BDD
 Sans BDD, cela peut donner
 ==========================
 
-.. image:: specifications.png
+.. image:: images/specifications.png
 
 
 ----
@@ -81,7 +81,7 @@ Gherkin
     - un fichier par fonctionnalité
     - un fichier d'extension ``.feature``
 
-.. image:: PickledGherkin.JPG
+.. image:: images/PickledGherkin.JPG
     :width: 220px
     :alt: cucumber
     :align: center
