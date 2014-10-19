@@ -1,0 +1,38 @@
+//colors
+$black_50: rgba(0, 0, 0, 0.5);
+$color_gallery_approx: #eeeeee;
+
+//fonts
+$font_0: Verdana;
+$font_1: Arial;
+$font_2: Sans;
+
+#hovercraft-help {
+	background: none repeat scroll 0 0 $black_50;
+	color: #EEEEEE;
+	font-size: 100%;
+	left: 2em;
+	bottom: 2em;
+	width: 26em;
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 1em;
+	padding: 1em;
+	position: fixed;
+	right: 0;
+	text-align: center;
+	z-index: 100;
+	display: block;
+	font-family: $font_0, $font_1, $font_2;
+	&.disabled {
+		display: none;
+	}
+}
+.impress-supported .fallback-message {
+	display: none;
+}
+.step .notes {
+	display: none;
+}
+.impress-enabled #hovercraft-help.hide {
+	display: none;
+}
