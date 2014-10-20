@@ -32,7 +32,7 @@ Introduction BDD
 
 ----
 
-
+:id: sans_bdd
 
 Sans BDD, cela peut donner
 ==========================
@@ -42,6 +42,7 @@ Sans BDD, cela peut donner
 
 ----
 
+:id: avec_bdd
 :data-rotate: 90
 
 Avec BDD
@@ -62,7 +63,7 @@ Avec BDD
         Alors le balancement devrait s'arrêter au bout d'un moment
 
 - Description simple des comportements avec un language naturel
-- plus il y a de scénarios et plus il y a de précisions
+- plus il y a de scénarios et plus il y a de précisions 
 
 ----
 
@@ -88,20 +89,21 @@ Gherkin
 
 ----
 
+:id: behave
 :data-rotate-x: 180
 
 Behave
 ======
 
 - Behave comprend le language gherkins
-- Behave execute le code python corresponsdant
+- Behave execute le code python des steps
 - Installation 
 
 .. code-block:: bash
 
         pip install behave
 
-- arborescence de tests
+- arborescence de tests pour un projet "classique"
 
 .. code-block:: bash
 
@@ -113,8 +115,9 @@ Behave
       |     |-- authentification.py
 
 
-
 ----
+
+:id: steps
 
 Steps ??
 ========
@@ -152,6 +155,8 @@ Steps ??
 
 ----
 
+:id: code_steps
+
 On code nos steps 
 =================
 
@@ -187,6 +192,102 @@ On code nos steps
 
 ----
 
+:id: dark_notes
+
+En vrai
+=======
+
+Dark notes
+----------
+
+"Il y a bien longtemps, dans une galaxie lointaine, très lointaine ...."
+
+.. image::  images/Darth-Vader_6bda9114.jpeg
+
+* Ses besoins
+    * une liste des planètes à envahir
+    * une TODO List pour chaque planète
+    * Lorsque l'ensemble des TODO d'une planètes sont "Done" alors lancement de l'attaque
+    * Une interface backoffice
+    * Une interface web front simple
+
+----
+
+:id: application
+
+L'application
+=============
+
+- Installation de Django et initialisation de notre application **dark_notes**
+- Installation de l'extensions django-behave
+
+.. code-block:: console
+
+    pip install django-behave
+
+- Dans le fichier settings : 
+    - ``django_behave`` dans INSTALLED_APPS 
+    - TEST_RUNNER = 'django_behave.runner.DjangoBehaveTestSuiteRunner' 
+- Initialiser 
+    - ajouter l'arborescence behave dans l'app Django
+    - ajouter un fichier environment.py
+
+.. code-block:: python
+
+    from splinter.browser import Browser
+
+    def before_all(context):
+        context.browser = Browser('chrome')
+
+    def after_all(context):
+        context.browser.quit()
+        context.browser = None
+
+----
+
+:id: scenario_simple
+
+Un scénario simple
+==================
+
+.. code-block:: cucumber
+
+    Fonctionnalité: Gestion des planètes
+
+        Scénario: Liste des planètes à envahir
+            Soit je suis sur le site
+            Quand j'ouvre la page d'accueil du site
+            Alors je devrais voir "Planètes à envahir"
+            Et il y a au moins une planète 
+
+Cela donne les steps suivants
+
+.. code-block:: python
+
+    # -*- coding: utf-8 -*-
+    from behave import *
+    from django.test import Client
+
+    @then(u'je devrais voir "{text}')
+    def impl(context, text):
+        return context.response.content.find(text)>0
+
+    @when(u'j\'ouvre la page d\'accueil du site')
+    def impl(context):
+        context.response = context.c.get('/')
+
+    @given(u'je suis sur le site')
+    def impl(context):
+        context.c = Client()
+
+    @then(u'il y a au moins une planète')
+    def impl(context):
+        assert True
+
+----
+
+:id: et_apres
+
 Et après ?
 ==========
 
@@ -202,6 +303,13 @@ Et après ?
 
 ----
 
-Questions ??
-============
+:id: fin
+
+FIN
+===
+
+Presentation
+------------
+* https://github.com/chbrun/pycon-2014_BDD_Behave
+
 

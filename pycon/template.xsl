@@ -82,9 +82,12 @@ xmlns="http://www.w3.org/1999/xhtml">
                 -
                 <xsl:value-of select="/document/author" />
             </xsl:if>
+
+            <div class='event'>
             <xsl:if test="/document/@event">
-                 - <xsl:value-of select="/document/@event" />
+                <xsl:value-of select="/document/@event" />
             </xsl:if>
+        </div>
         </p>
     </div>
   

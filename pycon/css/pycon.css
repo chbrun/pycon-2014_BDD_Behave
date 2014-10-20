@@ -54,25 +54,29 @@ a:visited {
 #footer.disabled {
   display: none;
 }
+/* line 61, ../sass/pycon.scss */
+#footer div.event {
+  float: right;
+}
 
-/* line 62, ../sass/pycon.scss */
+/* line 65, ../sass/pycon.scss */
 .step {
   font-size: 28px;
   color: #333333;
   width: 70%;
 }
 
-/* line 67, ../sass/pycon.scss */
+/* line 70, ../sass/pycon.scss */
 h1 {
   color: #296177;
 }
 
-/* line 70, ../sass/pycon.scss */
+/* line 73, ../sass/pycon.scss */
 h2 {
   color: #64BBDB;
 }
 
-/* line 73, ../sass/pycon.scss */
+/* line 76, ../sass/pycon.scss */
 pre {
   padding: 20px;
   color: white;
@@ -80,69 +84,69 @@ pre {
   line-height: 1.2em;
 }
 
-/* line 79, ../sass/pycon.scss */
+/* line 82, ../sass/pycon.scss */
 tt {
   color: #208F9E;
 }
 
-/* line 82, ../sass/pycon.scss */
+/* line 85, ../sass/pycon.scss */
 dt {
   font-weight: bold;
 }
 
-/* line 85, ../sass/pycon.scss */
+/* line 88, ../sass/pycon.scss */
 table {
   width: 100%;
 }
 
-/* line 88, ../sass/pycon.scss */
+/* line 91, ../sass/pycon.scss */
 th {
   border-bottom: 2px solid black;
   padding: 5px 15px;
   text-align: left;
 }
-/* line 92, ../sass/pycon.scss */
+/* line 95, ../sass/pycon.scss */
 th p {
   margin: 0;
 }
 
-/* line 96, ../sass/pycon.scss */
+/* line 99, ../sass/pycon.scss */
 td {
   padding: 5px 15px;
   text-align: left;
 }
-/* line 99, ../sass/pycon.scss */
+/* line 102, ../sass/pycon.scss */
 td p {
   margin: 0;
 }
 
-/* line 103, ../sass/pycon.scss */
+/* line 106, ../sass/pycon.scss */
 #step-1 {
   text-align: center;
 }
 
-/* line 113, ../sass/pycon.scss */
+/* line 116, ../sass/pycon.scss */
 .impress-not-supported .step {
   padding: 5%;
   border-bottom: 2px solid #cccccc;
   width: 90% !important;
 }
-/* line 118, ../sass/pycon.scss */
+/* line 121, ../sass/pycon.scss */
 .impress-not-supported #hovercraft-help {
   display: none;
 }
-/* line 121, ../sass/pycon.scss */
+/* line 124, ../sass/pycon.scss */
 .impress-not-supported #footer {
   font-size: 15px;
 }
 
 @media screen and (max-width: 500px) {
-  /* line 126, ../sass/pycon.scss */
+  /* line 129, ../sass/pycon.scss */
   .step {
     width: 200%;
   }
 }
-/* line 130, ../sass/pycon.scss */
+/* line 133, ../sass/pycon.scss */
 ul li {
   padding-left: 5px;
 }
