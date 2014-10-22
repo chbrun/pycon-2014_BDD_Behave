@@ -26,7 +26,7 @@ Introduction BDD
 - en pratique
     - participation de l'ensemble des acteurs  à l'élaboration de l'application
     - rédaction des comportements des éléments de l'application
-    - automatisation des tests en cohénrece de ces comportements
+    - automatisation des tests en cohérence avec les comportements
     - responsabilisation de l'application face aux comportement : "devrait" plutôt que "devoir"
     - Utilisation de "Bouchon" sur les éléments non encore traités
 
@@ -55,7 +55,7 @@ Avec BDD
 
     Fonctionnalité: Fonctionnement de ma balançoire
 
-    Scénario: Utilisation standard de ma balaçoire
+    Scénario: Utilisation standard de ma balançoire
         Soit je suis assis sur la planche de bois
         Quand je me pousse en arrière avec les pieds
         Alors je devrais me balancer d'avant en arrière 
@@ -86,6 +86,45 @@ Gherkin
     :width: 220px
     :alt: cucumber
     :align: center
+
+----
+
+:id: exemple_gherkin
+
+Exemples de scénario
+====================
+
+.. code-block:: cucumber
+
+    Fonctionnalité: Gestion des comptes utilisateurs
+        Description de la fonctionnalité
+        pour détailler les choses
+
+        Contexte:
+            Soit je suis authentifié en admin
+            Et j'accède au backoffice
+
+        Scénario: Création d'un compte utilisateur
+            Soit je clique sur le menu utilisateur
+            Et je clique sur ajouter
+            Alors le formulaire de création de compte devrait s'afficher
+            Quand je remplis le champ "nom" avec "Brun"
+            Et je remplis le champ "prénom" avec "Christophe"
+            Et je clique sur valider
+            Alors le message "Nouveau compte créé" devrait s'afficher 
+        
+
+        Plan du scénario: Ajouter plusieurs comptes
+            Soit j'appel la fonction ajouter un utilisateur 
+            Quand je remplis le champ "nom" avec <nom>
+            Et je remplis le champ "prénom" avec <prénom>
+            Et je clique sur valider
+            Alors le message "Nouveau compte créé" devrait s'afficher 
+
+            Exemples:
+                | nom       | prénom            |
+                | Brun      | Christophe        |
+                | Dark      | Vader             |
 
 ----
 
@@ -193,9 +232,10 @@ On code nos steps
 ----
 
 :id: dark_notes
+:data-rotate: -90
 
-En vrai
-=======
+Dans la vrai vie
+================
 
 Dark notes
 ----------
@@ -210,6 +250,30 @@ Dark notes
     * Lorsque l'ensemble des TODO d'une planètes sont "Done" alors lancement de l'attaque
     * Une interface backoffice
     * Une interface web front simple
+
+----
+
+:id: on_commence
+
+On commence par ....
+====================
+
+Ecrire des comportements
+------------------------
+
+.. code-block:: cucumber
+
+    Fonctionnalité: Liste des planètes en mode admin
+        Affiche la liste des planètes et les informations associées
+
+        Contexte:
+            Soit je me connecte à l'application en "Dark Vader"
+
+        Scenario: lancement de l'application
+            Quand je lance l'application
+            Alors je devrais voir "Bonjour le monde"
+
+    
 
 ----
 
@@ -266,23 +330,127 @@ Cela donne les steps suivants
 
     # -*- coding: utf-8 -*-
     from behave import *
-    from django.test import Client
 
     @then(u'je devrais voir "{text}')
     def impl(context, text):
-        return context.response.content.find(text)>0
+        return context.browser.is_text_present(text)
 
     @when(u'j\'ouvre la page d\'accueil du site')
     def impl(context):
-        context.response = context.c.get('/')
+        return context.browser.visit('http://localhost:8000/')
 
     @given(u'je suis sur le site')
     def impl(context):
-        context.c = Client()
+        return True
 
     @then(u'il y a au moins une planète')
     def impl(context):
-        assert True
+        assert True # ....
+
+----
+
+:id: steps_01
+
+Steps (1/)
+==========
+
+Utilisation de variables
+------------------------
+
+.. code-block:: cucumber
+
+    Quand je m'authentifie avec le compte "admin/password"
+
+Cela donne
+
+.. code-block:: python
+
+    @when(u'''Je m'authentifie avec le compte "{compte}"''')
+    def impl(context, compte):
+        login, passwd  = compte.split('/')
+        context.browser.fill('username',login)
+        context.browser.fill('password',passwd)
+
+
+----
+
+:id: steps_02
+
+Steps (2/)
+==========
+
+Re-use
+------
+
+.. code-block:: cucumber
+
+    Quand Je me connecte au backoffice avec le compte "{compte}"
+
+On réutilise
+
+.. code-block:: python
+
+    @when(u'Je me connecte au backoffice avec le compte "{compte}"')
+    def impl(context, compte):
+        context.execute_steps(u'''
+            Quand Je m'authentifie avec le compte "{compte}"
+            Et Je clique sur le bouton "Log in"
+            '''.format(compte=compte))
+
+----
+
+:id: steps_03
+
+Steps (3/)
+==========
+
+Plan de scénario
+----------------
+
+.. code-block:: cucumber
+
+        Scénario: Envahir des planètes
+            Soit la liste des planètes
+                | nom              | Climat  |
+                | Abafar           | Chaud   |
+                | Alderaan         | Tempéré |
+                | hoth             | Froid   |
+                | Tatoïne          | Chaud   |
+            Quand J'affiche la liste des planètes
+            Alors on devrait avoir 2 planète(s) au climat "chaud"
+            Et on devrait avoir 1 planète(s) au climat "Froid"
+
+
+Initialisation de la liste
+
+.. code-block:: python
+
+    @given('la liste des planètes')
+    def step_impl(context):
+        for row in context.table:
+            p=Planete(nom=row['nom'], climat=row['climat'])
+            p.save()
+
+----
+
+:id: client_steps
+
+Browser,  client web, autre
+===========================
+
+Tests de l'IHM
+--------------
+
+* Splinter : framework de test d'application web
+* Client Django : 
+* Pas de client : utilisation de l'ORM, requête directe
+
+
+Oui, mais pas que 
+-----------------
+
+* step pour valider des envois de mail
+* step pour valider un model, une view , un template
 
 ----
 
@@ -295,21 +463,22 @@ Et après ?
     - en intégration continue
     - pour la documentation ou manuel utilisateur
     - pour la formation client ou interne (Maintenance)
-    - peuvent être utilisé comme sondes
+    - peuvent être utilisé comme sondes de monitoring
    
-- alimente une banque de ``steps``
-    - gain 
+- plus on fait des tests, plus on a des steps, plus on gagne de temps
+  et donc plus on fait des tests
+
 
 
 ----
 
 :id: fin
 
-FIN
-===
+Merci
+=====
 
 Presentation
 ------------
 * https://github.com/chbrun/pycon-2014_BDD_Behave
-
+* @chbrun
 
