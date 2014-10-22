@@ -30,6 +30,8 @@ Introduction BDD
     - responsabilisation de l'application face aux comportement : "devrait" plutôt que "devoir"
     - Utilisation de "Bouchon" sur les éléments non encore traités
 
+.. image:: images/Analyse-du-besoin-ce-que-le-client-voulait-17.png
+
 ----
 
 :id: sans_bdd
@@ -351,8 +353,8 @@ Cela donne les steps suivants
 
 :id: steps_01
 
-Steps (1/)
-==========
+Steps (1/3)
+===========
 
 Utilisation de variables
 ------------------------
@@ -376,8 +378,8 @@ Cela donne
 
 :id: steps_02
 
-Steps (2/)
-==========
+Steps (2/3)
+===========
 
 Re-use
 ------
@@ -401,8 +403,8 @@ On réutilise
 
 :id: steps_03
 
-Steps (3/)
-==========
+Steps (3/3)
+===========
 
 Plan de scénario
 ----------------
@@ -462,7 +464,7 @@ Et après ?
 - les Scénarios sont utilisables
     - en intégration continue
     - pour la documentation ou manuel utilisateur
-    - pour la formation client ou interne (Maintenance)
+    - pour la formation client ou interne (TMA)
     - peuvent être utilisé comme sondes de monitoring
    
 - plus on fait des tests, plus on a des steps, plus on gagne de temps
