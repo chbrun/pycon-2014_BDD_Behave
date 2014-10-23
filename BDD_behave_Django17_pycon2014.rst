@@ -6,6 +6,7 @@
 :data-transition-duration: 1300
 :pygments: monokai
 
+----
 
 :id: homepage
 
@@ -15,12 +16,18 @@ BDD avec Behave (et Django 1.7)
 Christophe Brun
 ---------------
 
+.. image:: assets/images/banner_pycon.png
+
+.. note:
+    Pourquoi ce thème
+
 ----
 
 :id: intro
 
 Introduction BDD
 ================
+
 - Le BDD (Behavior Driven Development) : le Développement Piloté par le Comportement.
 - Pratique Agile visant la collaboration des acteurs techniques ou non d'un projet
 - en pratique
@@ -30,7 +37,7 @@ Introduction BDD
     - responsabilisation de l'application face aux comportement : "devrait" plutôt que "devoir"
     - Utilisation de "Bouchon" sur les éléments non encore traités
 
-.. image:: images/Analyse-du-besoin-ce-que-le-client-voulait-17.png
+.. image:: assets/images/Analyse-du-besoin-ce-que-le-client-voulait-17.png
 
 ----
 
@@ -39,7 +46,7 @@ Introduction BDD
 Sans BDD, cela peut donner
 ==========================
 
-.. image:: images/specifications.png
+.. image:: assets/images/specifications.png
 
 
 ----
@@ -84,7 +91,7 @@ Gherkin
     - un fichier par fonctionnalité
     - un fichier d'extension ``.feature``
 
-.. image:: images/PickledGherkin.JPG
+.. image:: assets/images/PickledGherkin.png
     :width: 220px
     :alt: cucumber
     :align: center
@@ -244,7 +251,7 @@ Dark notes
 
 "Il y a bien longtemps, dans une galaxie lointaine, très lointaine ...."
 
-.. image::  images/Darth-Vader_6bda9114.jpeg
+.. image::  assets/images/Darth-Vader_6bda9114.jpeg
 
 * Ses besoins
     * une liste des planètes à envahir
@@ -252,6 +259,22 @@ Dark notes
     * Lorsque l'ensemble des TODO d'une planètes sont "Done" alors lancement de l'attaque
     * Une interface backoffice
     * Une interface web front simple
+
+----
+
+Workflow
+========
+
+* la phase de spécifications consiste à écrire les comportements
+    * si possible rester cohérent et utiliser le même volabulaire
+* phase de traduction : 
+    * Ecriture des steps
+    * Réutilisation au maximum des steps
+* phase de développement
+
+Et les tests
+------------
+- en mode intégration continue
 
 ----
 
@@ -272,8 +295,10 @@ Ecrire des comportements
             Soit je me connecte à l'application en "Dark Vader"
 
         Scenario: lancement de l'application
-            Quand je lance l'application
-            Alors je devrais voir "Bonjour le monde"
+            Soit je me connecte au site
+            Quand je clic sur le lien "liste des planètes"
+            Alors je devrais voir "Liste des planètes"
+            Et la liste affiche des planètes à envahir
 
     
 
@@ -292,11 +317,11 @@ L'application
     pip install django-behave
 
 - Dans le fichier settings : 
-    - ``django_behave`` dans INSTALLED_APPS 
-    - TEST_RUNNER = 'django_behave.runner.DjangoBehaveTestSuiteRunner' 
+    - ``django_behave`` dans ``INSTALLED_APPS``
+    - ``TEST_RUNNER = 'django_behave.runner.DjangoBehaveTestSuiteRunner'``
 - Initialiser 
     - ajouter l'arborescence behave dans l'app Django
-    - ajouter un fichier environment.py
+    - ajouter un fichier ``environment.py``
 
 .. code-block:: python
 
@@ -481,6 +506,8 @@ Merci
 
 Presentation
 ------------
-* https://github.com/chbrun/pycon-2014_BDD_Behave
-* @chbrun
+
+* github     : https://github.com/chbrun/pycon-2014_BDD_Behave
+* slideshare : 
+* twitter    : @chbrun
 

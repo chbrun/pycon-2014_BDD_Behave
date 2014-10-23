@@ -3,7 +3,7 @@ $color_viking_approx: #64bbdb;
 $color_gravel_approx: #494949;
 $white: #ffffff;
 $color_mine_shaft_approx: #333333;
-$color_casal_approx: #296177;
+$color_casal_approx: #3ac154;
 $color_eastern_blue_approx: #208f9e;
 $black: #000000;
 $color_celeste_approx: #cccccc;
@@ -12,6 +12,13 @@ $color_celeste_approx: #cccccc;
 $font_0: Verdana;
 $font_1: Arial;
 $font_2: serif;
+
+@mixin img_center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 
 //@extend-elements
 //original selectors
@@ -53,7 +60,10 @@ a {
 		display: none;
 	}
 	p {
-		margin: 8px 0 0;
+		margin: 1px 0 0;
+        display: block;
+        width: 70%;
+        float: left;
 	}
 	&.disabled {
 		display: none;
@@ -63,15 +73,18 @@ a {
     }
 }
 .step {
-	font-size: 28px;
+	font-size: 24px;
 	color: $color_mine_shaft_approx;
-	width: 70%;
+	width: 80%;
 }
 h1 {
 	color: $color_casal_approx;
+    font-size: 40px;
+
 }
 h2 {
-	color: #64BBDB;
+	color: #33a56b;
+    font-size: 35px;
 }
 pre {
 	padding: 20px;
@@ -131,5 +144,49 @@ td {
 	}
 }
 ul li {
+    margin-left: 2em;
 	padding-left: 5px;
+    list-style-image: image-url('puce_verte.png');
+    margin-bottom: 0.7em;
+    & ul li {
+        list-style-image: image-url('subpuce_verte.png');
+    }
+}
+div {
+    &#homepage {
+        img {
+            width: 30%;
+            height: auto;
+            float: right;
+            position: absolute;
+            top: -100%;
+            right: 0px;
+
+        }
+    }
+    &#intro {
+        img {
+            width: 30%;
+            height: auto;
+            @include img_center;
+        }
+    }
+    &#sans_bdd {
+        img {
+            width: 90%;
+            height: auto;
+        }
+    }
+    &#gherkin {
+        img {
+            @include img_center;
+        }
+    }
+    &#dark_notes {
+        img {
+            width: 20%;
+            height: auto;
+            @include img_center;
+        }
+    }
 }

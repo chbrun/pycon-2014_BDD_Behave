@@ -1,0 +1,201 @@
+/* line 26, ../../pycon/sass/pycon.scss */
+.impress-not-supported #impress, .impress-not-supported #impress > div {
+  position: static !important;
+  margin: 100px 0;
+  width: auto !important;
+}
+
+/* line 33, ../../pycon/sass/pycon.scss */
+body {
+  font-family: Verdana, Arial, serif;
+  margin: 0;
+}
+
+/* line 37, ../../pycon/sass/pycon.scss */
+#impress {
+  width: 100%;
+}
+/* line 39, ../../pycon/sass/pycon.scss */
+#impress > div {
+  width: 100%;
+}
+
+/* line 43, ../../pycon/sass/pycon.scss */
+a {
+  color: #64BBDB;
+}
+/* line 45, ../../pycon/sass/pycon.scss */
+a:visited {
+  color: #64BBDB;
+}
+
+/* line 49, ../../pycon/sass/pycon.scss */
+#footer {
+  position: fixed;
+  bottom: 0;
+  background: #494949;
+  color: white;
+  width: 96%;
+  padding: 5px 2%;
+}
+/* line 56, ../../pycon/sass/pycon.scss */
+#footer img {
+  float: right;
+}
+/* line 59, ../../pycon/sass/pycon.scss */
+#footer .print {
+  display: none;
+}
+/* line 62, ../../pycon/sass/pycon.scss */
+#footer p {
+  margin: 1px 0 0;
+  display: block;
+  width: 70%;
+  float: left;
+}
+/* line 68, ../../pycon/sass/pycon.scss */
+#footer.disabled {
+  display: none;
+}
+/* line 71, ../../pycon/sass/pycon.scss */
+#footer div.event {
+  float: right;
+}
+
+/* line 75, ../../pycon/sass/pycon.scss */
+.step {
+  font-size: 24px;
+  color: #333333;
+  width: 80%;
+}
+
+/* line 80, ../../pycon/sass/pycon.scss */
+h1 {
+  color: #3ac154;
+  font-size: 40px;
+}
+
+/* line 85, ../../pycon/sass/pycon.scss */
+h2 {
+  color: #33a56b;
+  font-size: 35px;
+}
+
+/* line 89, ../../pycon/sass/pycon.scss */
+pre {
+  padding: 20px;
+  color: white;
+  font-size: 0.65em;
+  line-height: 1.2em;
+}
+
+/* line 95, ../../pycon/sass/pycon.scss */
+tt {
+  color: #208F9E;
+}
+
+/* line 98, ../../pycon/sass/pycon.scss */
+dt {
+  font-weight: bold;
+}
+
+/* line 101, ../../pycon/sass/pycon.scss */
+table {
+  width: 100%;
+}
+
+/* line 104, ../../pycon/sass/pycon.scss */
+th {
+  border-bottom: 2px solid black;
+  padding: 5px 15px;
+  text-align: left;
+}
+/* line 108, ../../pycon/sass/pycon.scss */
+th p {
+  margin: 0;
+}
+
+/* line 112, ../../pycon/sass/pycon.scss */
+td {
+  padding: 5px 15px;
+  text-align: left;
+}
+/* line 115, ../../pycon/sass/pycon.scss */
+td p {
+  margin: 0;
+}
+
+/* line 119, ../../pycon/sass/pycon.scss */
+#step-1 {
+  text-align: center;
+}
+
+/* line 129, ../../pycon/sass/pycon.scss */
+.impress-not-supported .step {
+  padding: 5%;
+  border-bottom: 2px solid #cccccc;
+  width: 90% !important;
+}
+/* line 134, ../../pycon/sass/pycon.scss */
+.impress-not-supported #hovercraft-help {
+  display: none;
+}
+/* line 137, ../../pycon/sass/pycon.scss */
+.impress-not-supported #footer {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 500px) {
+  /* line 142, ../../pycon/sass/pycon.scss */
+  .step {
+    width: 200%;
+  }
+}
+/* line 146, ../../pycon/sass/pycon.scss */
+ul li {
+  margin-left: 2em;
+  padding-left: 5px;
+  list-style-image: url('../images/puce_verte.png?1414074287');
+  margin-bottom: 0.7em;
+}
+/* line 151, ../../pycon/sass/pycon.scss */
+ul li ul li {
+  list-style-image: url('../images/subpuce_verte.png?1414094852');
+}
+
+/* line 157, ../../pycon/sass/pycon.scss */
+div#homepage img {
+  width: 30%;
+  height: auto;
+  float: right;
+  position: absolute;
+  top: -100%;
+  right: 0px;
+}
+/* line 168, ../../pycon/sass/pycon.scss */
+div#intro img {
+  width: 30%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+/* line 175, ../../pycon/sass/pycon.scss */
+div#sans_bdd img {
+  width: 90%;
+  height: auto;
+}
+/* line 181, ../../pycon/sass/pycon.scss */
+div#gherkin img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+/* line 186, ../../pycon/sass/pycon.scss */
+div#dark_notes img {
+  width: 20%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
